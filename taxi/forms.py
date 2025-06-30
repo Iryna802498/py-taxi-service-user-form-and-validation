@@ -35,7 +35,7 @@ class DriverLicenseUpdateForm(LicenseValidationMixin, forms.ModelForm):
 class CarCreateForm(forms.ModelForm):
     class Meta:
         model = Car
-        fields = ("model", "manufacturer",)
+        fields = ("model", "manufacturer", "drivers",)
         widgets = {
             "drivers": forms.CheckboxSelectMultiple(),
         }

@@ -38,10 +38,10 @@ def assign_driver_to_car(request, pk):
     try:
         driver = Driver.objects.get(user=request.user)
     except Driver.DoesNotExist:
-        return redirect("car-detail", pk=pk)
+        return redirect("taxi:car-detail", pk=pk)
 
     car.drivers.add(driver)
-    return redirect("car-detail", pk=pk)
+    return redirect("taxi:car-detail", pk=pk)
 
 
 @login_required
@@ -50,10 +50,10 @@ def remove_driver_from_car(request, pk):
     try:
         driver = Driver.objects.get(user=request.user)
     except Driver.DoesNotExist:
-        return redirect("car-detail", pk=pk)
+        return redirect("taxi:car-detail", pk=pk)
 
     car.drivers.remove(driver)
-    return redirect("car-detail", pk=pk)
+    return redirect("taxi:car-detail", pk=pk)
 
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
